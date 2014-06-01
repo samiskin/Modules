@@ -6,6 +6,8 @@ public abstract class Object {
 	double mass;
 	double massInv;
 	
+	double charge;
+	
 	boolean immovable = false;
 	
 	double elasticity;

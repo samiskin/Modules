@@ -63,7 +63,7 @@ public class Main extends JFrame
 			setResizable(false);
 
 			// The game updates every time the timer finishes
-			timer = new Timer(17, this);
+			timer = new Timer((int) Math.ceil(1/Engine.FRAMERATE*1000), this);
 			timer.start();
 		}
 

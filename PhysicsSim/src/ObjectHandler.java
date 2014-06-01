@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -28,7 +29,8 @@ public class ObjectHandler {
 		}
 		
 		for (Manifest m : manifests){
-			m.resolveGravitation();
+			//m.resolveGravitation();
+			
 			m.resolveCollision();
 			
 		}
@@ -38,14 +40,15 @@ public class ObjectHandler {
 	
 	public void run(){
 		resolveInteractions();
-		for (Object o : objects)
-			o.run();
 		for (Manifest m : manifests)
 			m.resolvePosition();
+		for (Object o : objects)
+			o.run();
 	}
 
 
 	public void draw(Graphics g) {
+		
 		
 		for (Object o : objects)
 			o.draw(g);

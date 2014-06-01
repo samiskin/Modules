@@ -14,6 +14,12 @@ public class Circle extends Object{
 		this.color = color;
 	}
 	
+	public Circle(Vector pos, double mass, Color color){
+		super(pos,mass,1);
+		this.color = color;
+		radius = Math.sqrt(mass/Math.PI);
+	}
+	
 	
 	public void draw(Graphics g){
 		g.setColor(color);
@@ -34,6 +40,7 @@ public class Circle extends Object{
 	}
 	
 	public void run(){
+		bounceWall();
 		super.run();
 
 	}

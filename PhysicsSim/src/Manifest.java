@@ -1,10 +1,10 @@
 
 public class Manifest {
 	
-	private Object a;
-	private Object b;
-	private double penetration;
-	private Vector normal;
+	public Object a;
+	public Object b;
+	public double penetration;
+	public Vector normal;
 	
 	public Manifest (Object objA, Object objB){
 		
@@ -41,10 +41,10 @@ public class Manifest {
 		
 	}
 	
-	public void resolveCollision(){
+	public boolean resolveCollision(){
 		
 		if (penetration < 0)
-			return;
+			return false;
 		
 		if (a.immovable)
 			a.vel.set(0,0);
@@ -57,7 +57,7 @@ public class Manifest {
 		double contactVel = Vector.dot(rv, normal);
 		
 		if (contactVel > 0)
-			return;
+			return false;
 		
 		
 		double impulse1 = -(1 + a.elasticity)*contactVel;
@@ -69,10 +69,16 @@ public class Manifest {
 		a.accel.add(Vector.multiply(normal,impulse1*a.massInv));
 		b.accel.subtract(Vector.multiply(normal,impulse2*b.massInv));		
 		
+		
+		
+		return true;
+		
 	}
 	
 	public void resolveGravitation(){
-		double g = 9;
+		if (penetration >= -0.2)
+			return;
+		double g = 5;
 		Vector r = Vector.subtract(b.pos,a.pos);
 		Vector norm = Vector.normalize(r);
 		Vector force = Vector.multiply(norm,g*a.mass*b.mass/r.lengthSquared());

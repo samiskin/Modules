@@ -11,6 +11,7 @@ public class Engine {
 	
 	public static final int WIDTH = 1280;
 	public static final int HEIGHT = 720;
+	public static final double FRAMERATE = 120;
 	
 	ArrayList<Color> colors;
 	
@@ -51,7 +52,13 @@ public class Engine {
 	{
 		if (event.getButton() == MouseEvent.BUTTON3)
 		{
-			Circle c = new Circle(new Vector(event.getPoint()),25,100,0.1,Color.orange);
+			Circle c = new Circle(new Vector(event.getPoint()),3000,Color.orange);
+			c.toggleMoveable();
+			objectHandler.addObject(c);
+		}
+		else if (event.getButton() == MouseEvent.BUTTON2){
+
+			Circle c = new Circle(new Vector(event.getPoint()),3000,Color.orange);
 			c.toggleMoveable();
 			objectHandler.addObject(c);
 		}
@@ -66,8 +73,8 @@ public class Engine {
 			return;
 		Vector clickEnd = new Vector(event.getPoint());
 		Vector dif = Vector.subtract(clickEnd, clickStart);
-		double mass = Math.random()*5+10;
-		Circle c = new Circle(clickStart, (int)(mass), mass*10, .5, colors.get((int)dif.length() % colors.size()));
+		double mass = Math.random()*300+700;
+		Circle c = new Circle(clickStart, mass, Color.green);
 		c.vel = dif.multiply(0.1);
 		objectHandler.addObject(c);
 		clickStart = null;
