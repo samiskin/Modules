@@ -1,0 +1,6 @@
+C:\Dropbox\DrunkPC\DrunkPC\bin\Debug\DrunkPC.exe.config
+C:\Dropbox\DrunkPC\DrunkPC\bin\Debug\DrunkPC.exe
+C:\Dropbox\DrunkPC\DrunkPC\bin\Debug\DrunkPC.pdb
+C:\Dropbox\DrunkPC\DrunkPC\obj\Debug\DrunkPC.csprojResolveAssemblyReference.cache
+C:\Dropbox\DrunkPC\DrunkPC\obj\Debug\DrunkPC.exe
+C:\Dropbox\DrunkPC\DrunkPC\obj\Debug\DrunkPC.pdb
